@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
 //        Toast.makeText(this, "Roll Button Clicked", Toast.LENGTH_SHORT).show()
-        textViewInfo.text = "Dice Rolled!"
+        textViewInfo.text = getString(R.string.dice_roll_text)
         val randomInt = (1..6).random()
         textViewDice.text = randomInt.toString()
     }
