@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private var randomInt = 0
+    private var randomIntOne = 0
+    private var randomIntTwo = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,15 +17,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         textViewInfo.text = getString(R.string.dice_roll_text)
-        randomInt = (1..6).random()
-        imageViewDice.setImageResource(
-            getResource(randomInt)
-
-        )
+        randomIntOne = (1..6).random()
+        randomIntTwo = (1..6).random()
+        imageViewDiceOne.setImageResource(getResource(randomIntOne))
+        imageViewDiceTwo.setImageResource(getResource(randomIntTwo))
     }
 
     private fun countUp() {
-        imageViewDice.setImageResource(getResource(++randomInt))
+        imageViewDiceOne.setImageResource(getResource(++randomIntOne))
+        imageViewDiceTwo.setImageResource(getResource(++randomIntTwo))
     }
 
     private fun getResource(value: Int): Int {
