@@ -9,23 +9,36 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         buttonRoll.setOnClickListener { rollDice() }
-        buttonCountUp.setOnClickListener { countUp() }
+//        buttonCountUp.setOnClickListener { countUp() }
     }
 
     private fun rollDice() {
-//        Toast.makeText(this, "Roll Button Clicked", Toast.LENGTH_SHORT).show()
         textViewInfo.text = getString(R.string.dice_roll_text)
         val randomInt = (1..6).random()
-        textViewDice.text = randomInt.toString()
+        imageViewDice.setImageResource(
+            getResource(randomInt)
+
+        )
     }
 
-    private fun countUp() {
-        var text = textViewDice.text.toString().toIntOrNull()
-        if (text != null) {
-            if (text < 6)
-                textViewDice.text = (++text).toString()
-        } else
-            textViewDice.text = "1"
+    //    private fun countUp() {
+//        var text = textViewDice.text.toString().toIntOrNull()
+//        if (text != null) {
+//            if (text < 6)
+//                textViewDice.text = (++text).toString()
+//        } else
+//            textViewDice.text = "1"
+//    }
+//
+    private fun getResource(value: Int): Int {
+        return when (value) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
     }
 
 }
