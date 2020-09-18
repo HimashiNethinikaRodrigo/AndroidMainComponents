@@ -5,31 +5,27 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private var randomInt = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         buttonRoll.setOnClickListener { rollDice() }
-//        buttonCountUp.setOnClickListener { countUp() }
+        buttonCountUp.setOnClickListener { countUp() }
     }
 
     private fun rollDice() {
         textViewInfo.text = getString(R.string.dice_roll_text)
-        val randomInt = (1..6).random()
+        randomInt = (1..6).random()
         imageViewDice.setImageResource(
             getResource(randomInt)
 
         )
     }
 
-    //    private fun countUp() {
-//        var text = textViewDice.text.toString().toIntOrNull()
-//        if (text != null) {
-//            if (text < 6)
-//                textViewDice.text = (++text).toString()
-//        } else
-//            textViewDice.text = "1"
-//    }
-//
+    private fun countUp() {
+        imageViewDice.setImageResource(getResource(++randomInt))
+    }
+
     private fun getResource(value: Int): Int {
         return when (value) {
             1 -> R.drawable.dice_1
