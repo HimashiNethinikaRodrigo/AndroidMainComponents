@@ -4,4 +4,5 @@
     <string name="count_up_label">Count up</string>
     <string name="start_roll">Start Roll</string>
     <string name="dice_roll_text">Dice Rolled!</string>
+    <string name="about_me">About Me</string>
 </resources>
